@@ -1,0 +1,42 @@
+{
+  "name": "electron-webscraper",
+  "private": true,
+  "version": "1.0.2",
+  "type": "module",
+  "main": "electron/main.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint .",
+    "preview": "vite preview",
+    "electron:dev": "concurrently \"npm run dev\" \"cross-env ELECTRON_ENV=development electron .\"",
+    "electron:build": "npm run build && electron-packager . ElectronWebScraper-v%npm_package_version% --platform=win32 --arch=x64 --out=release-builds --overwrite --asar --prune=true --ignore=\"/node_modules|/\\.git|/\\.vscode\" --extra-resource=\"./dist\"",
+    "version:patch": "npm version patch",
+    "version:minor": "npm version minor",
+    "version:major": "npm version major"
+  },
+  "dependencies": {
+    "framer-motion": "^12.19.1",
+    "puppeteer": "^24.10.2",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "xlsx": "^0.18.5"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.25.0",
+    "@tailwindcss/vite": "^4.1.10",
+    "@types/react": "^19.1.2",
+    "@types/react-dom": "^19.1.2",
+    "@vitejs/plugin-react": "^4.6.0",
+    "concurrently": "^8.2.2",
+    "cross-env": "^7.0.3",
+    "electron": "^36.5.0",
+    "electron-packager": "^17.1.2",
+    "eslint": "^9.25.0",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.19",
+    "globals": "^16.0.0",
+    "tailwindcss": "^4.1.10",
+    "vite": "^6.3.5"
+  }
+}
